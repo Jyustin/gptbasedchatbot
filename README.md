@@ -1,8 +1,11 @@
 inside contains many different files for a chatgpt based chatbot project
+
 NOTE: this is mostly guidelines to help with building the project, not so much instructions. Do not expect this to work out of the box, some configuration will have to be done.
 
 HOW TO USE:
+
 1: create a new repository using this github template: https://github.com/nighthawkcoders/spring_portfolio
+
 this is a java backend built on spring, and will be used for the endpoints for our project
 
 2: open the new backend repository and place the chathistory folder into the following directory
