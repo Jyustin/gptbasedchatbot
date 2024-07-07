@@ -47,11 +47,12 @@ public class AIChatbotController {
 	// storing part of gpt key string inside .env
 	static Dotenv dotenv = Dotenv.load();
 
-	// create chat GPT assistant id. both keys are split strings so stealing key is more difficult
-	private static String assistantId = "asst_" + dotenv.get("ai_asst_id");
+	// create chat GPT assistant id. both values are split strings, with 1 half in this file and 1 half in .env so stealing key is more difficult
+	//you could also use base64 encoding to obscure these values 
+	private static String assistantId = "1stpart" + dotenv.get("ai_asst_id");
 
 	// create chat GTP thread id
-	private static String threadId  =  "thread_" + dotenv.get("ai_thread_id");
+	private static String threadId  =  "1stpart" + dotenv.get("ai_thread_id");
 
 	// basic hello greeting
 	@GetMapping("")
