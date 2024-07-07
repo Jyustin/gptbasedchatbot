@@ -8,7 +8,15 @@ original backend: https://github.com/Codemaxxers/codemaxxerBackend
 
 NOTE: this is mostly guidelines to help with building the project, not so much instructions. Do not expect this to work out of the box, some configuration will have to be done.
 
-HOW TO USE:
+## CONTENTS:
+
+assets: contains files neccessary for frontend to run
+
+cc-assistant.html: the front page for the bot
+
+chathistory: contains java files meant to work with a spring backend. This was tested on a spring_portfolio template mentioned below.
+
+# HOW TO USE:
 
 1: create a new repository using this github template: https://github.com/nighthawkcoders/spring_portfolio
 
