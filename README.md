@@ -25,7 +25,9 @@ this is a java backend built on spring, and will be used for the endpoints for o
 2: open the new backend repository and place the chathistory folder into the following directory
 YOURBackend\src\main\java\com\nighthawk\spring_portfolio\mvc
 
-3: configure backend as needed
+3: add your own key to .env and to AIChatbotController.java
+- at this point, you may need to configure the code further if you are not using the spring_portfolio template for your backend.
+
 
 4: add cc-assistant.html (the frontend of the bot) and the assets folder to your frontend repository, configuring paths and the header of the html file to match up with your project. any frontend should work, however this project was built on this one: https://github.com/nighthawkcoders/Nighthawk-Pages
 
