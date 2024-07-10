@@ -49,10 +49,10 @@ public class AIChatbotController {
 
 	// create chat GPT assistant id. both values are split strings, with 1 half in this file and 1 half in .env so stealing key is more difficult
 	//you could also use base64 encoding to obscure these values 
-	private static String assistantId = "1stpart" + dotenv.get("ai_asst_id");
+	private static String assistantId = "asst_" + dotenv.get("ai_asst_id");
 
 	// create chat GTP thread id
-	private static String threadId  =  "1stpart" + dotenv.get("ai_thread_id");
+	private static String threadId  =  "thread_" + dotenv.get("ai_thread_id");
 
 	// basic hello greeting
 	@GetMapping("")
@@ -67,6 +67,7 @@ public class AIChatbotController {
 		try {
 			// user sends a message that is sent to chat gpt and a response is returned
 			String response = getResponseFromAI(message);
+			// getResponseFromAI method is used to send actual request.
 			System.out.println("Chat: " + message);
 			System.out.println("Response: " + response);
 			
@@ -74,7 +75,7 @@ public class AIChatbotController {
 			Chat chatUpdated = chatJpaRepository.save(chat);
 			System.out.println("Chat saved in db: " + chatUpdated.getId());
 			return new ResponseEntity<Chat>(chatUpdated, HttpStatus.OK);
-			//return response;
+			//return response
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -151,7 +152,7 @@ public class AIChatbotController {
 		return allChats;
 	}
 
-	// main method for actually calling the api itself
+	// MOST IMPORTANT PART. This is the method for actually calling the api itself
 	public String getResponseFromAI(String userQuery) throws Exception {
 		System.out.println("Assistant Id: " + assistantId);
 		System.out.println("Thread Id: " + threadId);
@@ -231,6 +232,8 @@ public class AIChatbotController {
 
 	    return chatReponse.toString();
 	}
+
+	// the following 2 methods below are for allowing the getResponseFromAI method to run.
 
 	// send http post and return JSON response
 	public static JSONObject sendHttpPost(String url, String body, Header... headers) throws Exception {
